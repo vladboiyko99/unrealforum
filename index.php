@@ -5,20 +5,23 @@ ob_start ();
 	?>
 	<!DOCTYPE HTML>
 <html>
-	
+	<head>
+		<title>Нереальный форум</title>
+	</head>
+
 
 		<!-- Home -->
-			
+
 
 		<!-- Work -->
 			<article id="work" class="wrapper style2">
 				<div class="container">
 					<header>
 						<h2>Свежие темы</h2>
-						<p><a href = 'add_topic.php'>Создать свою тему</a></p>
+						<p><?php if (isset ($_SESSION['login'])) echo "<a href = 'add_topic.php'>Создать свою тему</a>";?></p>
 					</header>
 					<div class="row aln-center">
-						
+
 							<?php
 							$result2 = mysqli_query ($connect,"SELECT * from forum order by id_forum DESC");
 							$myrow = mysqli_fetch_array ($result2,MYSQLI_ASSOC);
@@ -33,12 +36,12 @@ ob_start ();
 							while ($myrow = mysqli_fetch_array ($result2,MYSQLI_ASSOC));
 							?>
 						</div>
-						
+
 					</div>
-					
+
 				</div>
 			</article>
-		
+
 
 		<!-- Contact -->
 			<?include ('site/footer.php')?>

@@ -8,7 +8,9 @@ $myrow = mysqli_fetch_array ($result2,MYSQLI_ASSOC);
 ?>
 <!DOCTYPE HTML>
 <html>
-
+	<head>
+		<title>Личный кабинет</title>
+	</head>
 
 		<!-- Home -->
 			<article id="top" class="wrapper style1">
@@ -29,11 +31,11 @@ $myrow = mysqli_fetch_array ($result2,MYSQLI_ASSOC);
 								//var_dump ($myrow[id_users]);
 								echo "Количество тем которое вы создали: ".count ($row_forum)."<br>";
 								foreach ($row_forum as $key=>$vol){
-									
+
 									//echo $key;
-									 
+
 									echo "<a href = 'el.php?id=".$row_forum[$key]['id_forum']."'>".$row_forum [$key]['topic'].".</a> Дата создания: ".$row_forum [$key]['date_forum']."<br>";
-									
+
 								}
 								//echo "$row_forum ['0']['topic'].<br>";
 								$result_answer = mysqli_query($connect, "SELECT * from answer WHERE id_users = '$myrow[id_users]' order by id_answer DESC");
@@ -41,15 +43,15 @@ $myrow = mysqli_fetch_array ($result2,MYSQLI_ASSOC);
 								//var_dump ($row_answer);
 								echo "<br>"."Количество комментариев которое вы дали: ".count ($row_answer)."<br>";
 								foreach ($row_answer as $key=>$vol){
-									
+
 									//echo $key;
-									 
+
 									echo "<a href = 'el.php?id=".$row_answer[$key]['id_forum']."'>".$row_answer [$key]['answer'].".</a> Дата создания: ".$row_answer [$key]['date_answer']."<br>";
 								}
 							?></p>
-						</div>	
+						</div>
 					</div>
-				
+
 				<br><a href="add_picture.php" class="button large scrolly">Загрузите аватарку</a>
 				</div>
 			</article>

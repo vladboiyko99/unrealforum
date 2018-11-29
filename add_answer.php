@@ -5,7 +5,7 @@ ob_start ();
 			<!DOCTYPE HTML>
 <html>
 			<!-- Nav -->
-		
+
 		<!-- Work -->
 			<article id="work" class="wrapper style2">
 				<div class="container">
@@ -32,7 +32,7 @@ ob_start ();
 					</div>
 				</div>
 			</article>
-		
+
 
 		<!-- Contact -->
 			<?//include('site/footer.php')?>
@@ -47,9 +47,10 @@ ob_start ();
 	</body>
 </html>
 <?php
- 
+
 if (isset ($_POST['id_users']) and isset ($_POST['answer']) and isset ($_POST['id_forum'])){
 $result = mysqli_query($connect,"INSERT INTO answer (id_users,answer,id_forum) VALUES ('$_POST[id_users]','$_POST[answer]','$_POST[id_forum]')");
+var_dump ($result);
 if ($result == true)
 	header ("location: el.php?id=$_POST[id_forum]");
 else
