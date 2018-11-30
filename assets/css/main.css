@@ -358,15 +358,15 @@ input, select, textarea {
 		}
 
 		.row > .col-4 {
-
+			width: 33.3333333333%;
 		}
-		.row > .col-4 > p{
-			text-align:  center;
+
+		.row > .col-4 > span > p{
+			text-align: center;
 			padding-top: 10px;
-			font-style:italic;
-			font-weight: 700
+			font-style: italic;
+			font-weight:700;
 		}
-
 
 		.row > .off-4 {
 			margin-left: 33.3333333333%;
@@ -1638,21 +1638,19 @@ input, select, textarea {
 	.image {
 		display: inline-block;
 		position: relative;
-		text-align: center;
 	}
 
 		.image img {
 			display: block;
 			width: 100%;
 			z-index: 0;
-			text-align: center;
+
 		}
 
 		.image.fit {
 			display: block;
 			width: 100%;
 			z-index: 0;
-			text-align: center;
 		}
 
 		.image.featured {

@@ -22,8 +22,8 @@ ob_start ();
 				<div class="container">
 					<div class="row">
 						<div class="col-4 col-5-large col-12-medium">
-							<span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
-									<p><?=$myrow['login']?></p>
+							<span class="image fit"><img src="images/pic00.jpg" alt="" />
+									<p><?=$myrow['login']?></p></span>
 						</div>
 						<div class="col-8 col-7-large col-12-medium">
 							<header>
