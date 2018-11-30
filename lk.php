@@ -41,7 +41,7 @@ $myrow = mysqli_fetch_array ($result2,MYSQLI_ASSOC);
 								$result_answer = mysqli_query($connect, "SELECT * from answer WHERE id_users = '$myrow[id_users]' order by id_answer DESC");
 								$row_answer = mysqli_fetch_all ($result_answer,MYSQLI_ASSOC);
 								//var_dump ($row_answer);
-								echo "<br>"."Количество комментариев которое вы дали: ".count ($row_answer)."<br>";
+								//echo "<br>"."Количество комментариев которое вы дали: ".count ($row_answer)."<br>";
 								foreach ($row_answer as $key=>$vol){
 
 									//echo $key;

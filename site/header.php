@@ -4,7 +4,10 @@ header('Content-Type: text/html; charset=utf-8');
 session_start();
 ?>
 <head>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-2792656877269861",
@@ -126,6 +129,7 @@ session_start();
 
 
 									<li><a href="index.php">Главная</a></li>
+									<li><a href="search.php">Поиск</a></li>
 
 
 					  </ul>

@@ -50,6 +50,23 @@ ob_start ();
 $_POST['answer'] = stripslashes($_POST['answer']);
 $_POST['answer'] = htmlspecialchars($_POST['answer']);
 $_POST['answer'] = trim($_POST['answer']);
+
+$result4 = mysqli_query ($connect,"SELECT id_users from forum WHERE id_users = '$_POST[id_users]' AND id_forum = '$_POST[id_forum]' ");
+$myrow4 = mysqli_fetch_array ($result4,MYSQLI_ASSOC);
+
+if ($myrow4['id_users']<>0){
+ if (isset ($_POST['id_users']) and isset ($_POST['answer']) and isset ($_POST['id_forum'])){
+$result = mysqli_query($connect,"INSERT INTO answer (id_users,answer,id_forum,creator) VALUES ('$_POST[id_users]','$_POST[answer]','$_POST[id_forum]',1)");
+//var_dump ($result);
+if ($result == true)
+	header ("location: el.php?id=$_POST[id_forum]");
+else
+	echo "ERROR";
+}   
+    
+}
+else
+{
 if (isset ($_POST['id_users']) and isset ($_POST['answer']) and isset ($_POST['id_forum'])){
 $result = mysqli_query($connect,"INSERT INTO answer (id_users,answer,id_forum) VALUES ('$_POST[id_users]','$_POST[answer]','$_POST[id_forum]')");
 //var_dump ($result);
@@ -57,6 +74,7 @@ if ($result == true)
 	header ("location: el.php?id=$_POST[id_forum]");
 else
 	echo "ERROR";
+}
 }
 include('site/footer.php');
 ob_end_flush();

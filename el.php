@@ -6,15 +6,26 @@ ob_start ();
 	$result2 = mysqli_query ($connect,"SELECT * from forum NATURAL JOIN users WHERE id_forum=$_GET[id]");
 	$myrow = mysqli_fetch_array ($result2,MYSQLI_ASSOC);
 	//var_dump($myrow);
-	$titlename = $myrow['topic'];
+		$text = preg_replace("/(?![.=$'€%-])\p{P}/u", "", $myrow['text']);
+		$topic = preg_replace("/(?![.=$'€%-])\p{P}/u", "", $myrow['topic']);
+    $varClean = htmlspecialchars($varClean);
+    $varClean = trim($varClean);
+							$sum = strlen($text); 
+                            $sum1 = $sum - 150;
+                            if ($sum > 150){
+                            	
+                            	$text = substr($text,0 , -$sum1); 
+                            	$text = $text;
+                            }
 
 	?>
 <!DOCTYPE HTML>
 
 <html>
 	<head>
-		<title><?php  echo $titlename;?></title>
-		<meta name="description" content="<?=$myrow['topic']?>" />
+		<title><?=$myrow['topic']?></title>
+		<meta name="keywords" content="<?=$topic?>">
+		<meta name="description" content="<?=$text?>" />
 	</head>
 
 		<!-- Home -->
@@ -30,7 +41,7 @@ ob_start ();
 								<h1><?=$myrow['topic']?></h1>
 							</header>
 							<p><?=nl2br($myrow['text'])?></p>
-							<?php if (isset ($_SESSION['login'])) echo "<a href='add_answer.php?id_forum=$myrow[id_forum]' class='button large scrolly'>Добавить комментарий</a>";?>
+							<?php if (isset ($user_date)) echo "<a href='add_answer.php?id_forum=$myrow[id_forum]' class='button large scrolly'>Добавить комментарий</a>";?>
 						</div>
 					</div>
 				</div>
@@ -56,15 +67,28 @@ ob_start ();
 							?>
 							<?php
 							$result3 = mysqli_query ($connect,"SELECT * from answer NATURAL JOIN users  WHERE id_forum = $myrow[id_forum] order by id_answer DESC ");
-							@$myrow1 = mysqli_fetch_array ($result3,MYSQLI_ASSOC);
+							$myrow1 = mysqli_fetch_array ($result3,MYSQLI_ASSOC);
 
 							do{
+							    
+							    if ($myrow1['creator']<>0){
 								echo "<article class='box style2'>
+								<h3><em>Комментарий создателя темы: $myrow1[login]</h3></em><br>
+								<p>$myrow1[answer]</p>
+								<p>$myrow1[date_answer]</p>
+								</article>
+								<br>";}
+								
+								else{
+								 
+								 echo "<article class='box style2'>
 								<h3>$myrow1[login]</h3><br>
 								<p>$myrow1[answer]</p>
 								<p>$myrow1[date_answer]</p>
 								</article>
-								<br>";
+								<br>";  
+								    
+								}
 							}
 							while (@$myrow1 = mysqli_fetch_array ($result3,MYSQLI_ASSOC))
 
@@ -73,7 +97,7 @@ ob_start ();
 			</div>
 				</div>
 
-							<br><?php if (isset ($_SESSION['login'])) echo "<a href='add_answer.php?id_forum=$myrow[id_forum]' class='button large scrolly'>Добавить комментарий</a>";?>
+							<br><?php if (isset ($user_date)) echo "<a href='add_answer.php?id_forum=$myrow[id_forum]' class='button large scrolly'>Добавить комментарий</a>";?>
 
 			</article>
 
