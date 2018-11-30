@@ -1,0 +1,10 @@
+User-agent: Yandex
+Allow: /
+Disallow: /block
+Disallow: /assets
+User-agent: Googlebot
+Allow: /
+Disallow: /block
+Disallow: /assets
+Host: unrealforum.ru 
+Sitemap: http://unrealforum.ru/sitemap.xml

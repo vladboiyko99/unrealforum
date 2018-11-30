@@ -47,10 +47,12 @@ ob_start ();
 	</body>
 </html>
 <?php
-
+$_POST['answer'] = stripslashes($_POST['answer']);
+$_POST['answer'] = htmlspecialchars($_POST['answer']);
+$_POST['answer'] = trim($_POST['answer']);
 if (isset ($_POST['id_users']) and isset ($_POST['answer']) and isset ($_POST['id_forum'])){
 $result = mysqli_query($connect,"INSERT INTO answer (id_users,answer,id_forum) VALUES ('$_POST[id_users]','$_POST[answer]','$_POST[id_forum]')");
-var_dump ($result);
+//var_dump ($result);
 if ($result == true)
 	header ("location: el.php?id=$_POST[id_forum]");
 else

@@ -172,6 +172,7 @@ input, select, textarea {
 		font-size: 3.25em;
 		letter-spacing: -0.025em;
 		font-weight: 300;
+		line-height:1em;
 	}
 
 		h1 strong {
@@ -357,8 +358,15 @@ input, select, textarea {
 		}
 
 		.row > .col-4 {
-			width: 33.3333333333%;
+
 		}
+		.row > .col-4 > p{
+			text-align:  center;
+			padding-top: 10px;
+			font-style:italic;
+			font-weight: 700
+		}
+
 
 		.row > .off-4 {
 			margin-left: 33.3333333333%;
@@ -1630,18 +1638,21 @@ input, select, textarea {
 	.image {
 		display: inline-block;
 		position: relative;
+		text-align: center;
 	}
 
 		.image img {
 			display: block;
 			width: 100%;
 			z-index: 0;
+			text-align: center;
 		}
 
 		.image.fit {
 			display: block;
 			width: 100%;
 			z-index: 0;
+			text-align: center;
 		}
 
 		.image.featured {
@@ -1922,10 +1933,16 @@ input, select, textarea {
 		box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
 		text-align: center;
 		padding: 2em;
+		overflow:hidden;
+		text-overflow: ellipsis;
 	}
 
 		.box.style1 {
 			padding: 3em 2em 3.5em 2em;
+			max-width:400px;
+			max-height:400px;
+			width:100%;
+			height:100%;
 		}
 
 			.box.style1 h3 {
@@ -1976,7 +1993,7 @@ input, select, textarea {
 	.wrapper {
 		background-image: url("images/bg.png");
 		box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.05), inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
-		padding: 8em 0 8em 0;
+		padding: 1em 0 1em 0;
 		text-align: center;
 	}
 

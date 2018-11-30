@@ -14,6 +14,7 @@ ob_start ();
 <html>
 	<head>
 		<title><?php  echo $titlename;?></title>
+		<meta name="description" content="<?=$myrow['topic']?>" />
 	</head>
 
 		<!-- Home -->
@@ -22,6 +23,7 @@ ob_start ();
 					<div class="row">
 						<div class="col-4 col-5-large col-12-medium">
 							<span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
+									<p><?=$myrow['login']?></p>
 						</div>
 						<div class="col-8 col-7-large col-12-medium">
 							<header>
